@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="=en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List WebApp</title>
+</head>
+<body>
+<div>
+    <h1>To Do List WebApp</h1>
+    <from action="/add" method="post">
+        <div>
+            <label>Enter the task name and description</label>
+            <input type="text" name="=name">
+            <button tupe="submit">Add new task</button>
+        </div>
+    </from><br><br>
+    <table>
+        <tbody>
+            {%for todo in todo_list%}
+            <tr>
+                <td>{{todo.task_id}}</td>
+                <td>{{todo.name}}</td>
+                {%if todo.done=False%}
+                <td>Not Done</td>
+                {%else%}
+                <td>Done</td>
+                {%endif%}
+                <td><a href="/Update/{{todo.task_id"}}>Update Task</a></td>
+                <td><a href="/delete/{{todo.task_id"}}>delete Task</a></td>
+            </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
